@@ -12,13 +12,11 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      process.env.FRONTEND_URL,
+      "https://admirable-beignet-11c47a.netlify.app",
     ],
     methods: ["GET", "POST", "DELETE", "OPTIONS"],
   })
 );
-
-app.options("*", cors());
 
 app.use(express.json());
 
