@@ -21,7 +21,7 @@ Base URL: /api
   - **Request:** No body required. Accepts standard query headers. JSON response.
   - **Response (200):** JSON array of task objects. Example:
 
-    [
+    ```json
     {
     "_id": "64a1e7f0e7a1f2b3c4d5e6f7",
     "title": "Buy groceries",
@@ -29,7 +29,7 @@ Base URL: /api
     "updatedAt": "2025-12-17T12:34:56.789Z",
     "__v": 0
     }
-    ]
+    ```
 
   - **Errors:**
     - 500 Server error: { "message": "Server error" }
@@ -43,13 +43,14 @@ Base URL: /api
 
     - `title` (string, required) — the task title (non-empty).
       Example request body:
-
+    ```json
     {
     "title": "Walk the dog"
     }
+    ```
 
   - **Response (201):** The created task object (JSON). Example:
-
+    ```json
     {
     "\_id": "64a1e8a0e7a1f2b3c4d5e6f8",
     "title": "Walk the dog",
@@ -57,6 +58,7 @@ Base URL: /api
     "updatedAt": "2025-12-17T12:35:20.123Z",
     "\_\_v": 0
     }
+    ```
 
   - **Errors:**
     - 400 Bad Request: { "message": "Task title is required" } (when `title` is missing or empty)
@@ -67,7 +69,12 @@ Base URL: /api
   - **Path:** /api/tasks/:id
   - **Description:** Delete a task by its MongoDB ObjectId.
   - **Request:** Route parameter `id` — the task `_id` to delete.
-  - **Response (200):** { "message": "Task deleted successfully" }
+  - **Response (200):** 
+  ```json
+  { 
+    "message": "Task deleted successfully" 
+  }
+  ```
   - **Errors:**
     - 404 Not Found: { "message": "Task not found" } (when no task matches the id)
     - 400 Bad Request: { "message": "Invalid task ID" } (for invalid id formats)
