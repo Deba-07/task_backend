@@ -14,10 +14,12 @@ app.use(
       "http://localhost:5173",
       process.env.FRONTEND_URL,
     ],
-    methods: ["GET", "POST", "DELETE"],
-    credentials: true,
+    methods: ["GET", "POST", "DELETE", "OPTIONS"],
   })
 );
+
+app.options("*", cors());
+
 app.use(express.json());
 
 app.use("/api", require("./routes/taskRoutes"));
@@ -27,4 +29,6 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Server running on port ${PORT}`)
+);
