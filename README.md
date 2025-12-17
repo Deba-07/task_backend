@@ -108,5 +108,3 @@ Base URL: /api
 - Routes are defined in `routes/taskRoutes.js` and handled in `controllers/taskController.js`.
 
 ---
-
-If you want, I can also add example Postman collection or TypeScript types for the responses.
